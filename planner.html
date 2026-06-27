@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planner — HealthyBangetKak</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html">HealthyBangetKak</a>
+      <div class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="planner.html">Planner</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="planner-head">
+    <div class="container">
+      <h1>Menu Planner</h1>
+      <p>Centang menu yang ingin kamu pilih. Hasilnya terhitung otomatis di panel sebelah.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="planner-grid">
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Gambar</th>
+              <th>Nama Menu</th>
+              <th>Kategori</th>
+              <th>Kalori</th>
+              <th>Harga</th>
+              <th>Pilih</th>
+            </tr>
+          </thead>
+          <tbody id="menu-tbody"></tbody>
+        </table>
+      </div>
+
+      <aside class="result-panel">
+        <h2>Hasil Pilihanmu</h2>
+
+        <div class="totals">
+          <div class="total-box">
+            <div class="label">Total Kalori</div>
+            <div class="value" id="total-kalori">0 kkal</div>
+          </div>
+          <div class="total-box">
+            <div class="label">Total Harga</div>
+            <div class="value" id="total-harga">Rp 0</div>
+          </div>
+        </div>
+
+        <div class="badge" id="badge-seimbang">Menu Seimbang!</div>
+
+        <ul class="checklist">
+          <li class="pending" data-cat="pokok">Makanan Pokok</li>
+          <li class="pending" data-cat="lauk">Lauk-Pauk</li>
+          <li class="pending" data-cat="sayur">Sayur</li>
+          <li class="pending" data-cat="buah">Buah</li>
+          <li class="pending" data-cat="minuman">Minuman</li>
+        </ul>
+
+        <div class="empty-state" id="empty-state">Belum ada menu dipilih</div>
+        <div class="image-stack" id="image-stack"></div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 HealthyBangetKak · Tugas Besar Web Client Development · Kelas WCD05</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>
