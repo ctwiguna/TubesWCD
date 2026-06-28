@@ -167,10 +167,10 @@ a { color: inherit; text-decoration: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow-x: auto;
   box-shadow: var(--shadow);
 }
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; min-width: 620px; border-collapse: collapse; }
 thead th {
   background: var(--green-100);
   color: var(--green-700);
