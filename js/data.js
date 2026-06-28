@@ -8,7 +8,7 @@ const MENU_DATA = [
   { id: 2,  name: "Nasi Goreng Spesial",   categoryKey: "pokok",   categoryLabel: "Makanan Pokok", calories: 450, price: 18000, img: "assets/img/nasi-goreng.jpg" },
   { id: 3,  name: "Mie Goreng Jawa",       categoryKey: "pokok",   categoryLabel: "Makanan Pokok", calories: 380, price: 16000, img: "assets/img/mie-goreng.jpg" },
   { id: 4,  name: "Spaghetti Aglio Olio",  categoryKey: "pokok",   categoryLabel: "Makanan Pokok", calories: 420, price: 28000, img: "assets/img/spaghetti.jpg" },
-  { id: 5,  name: "Kentang Panggang",      categoryKey: "pokok",   categoryLabel: "Makanan Pokok", calories: 220, price: 15000, img: "assets/img/kentang.jpg" },
+  { id: 5,  name: "Kentang Panggang",      categoryKey: "pokok",   categoryLabel: "Makanan Pokok", calories: 220, price: 15000, img: "assets/img/kentang.png" },
   { id: 6,  name: "Roti Gandum (2 lembar)", categoryKey: "pokok",  categoryLabel: "Makanan Pokok", calories: 160, price: 8000,  img: "assets/img/roti-gandum.jpg" },
 
   // Lauk-Pauk
