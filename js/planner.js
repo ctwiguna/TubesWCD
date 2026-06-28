@@ -54,29 +54,38 @@ function renderTable() {
   });
 }
 
-// Menghitung total dan status kategori berdasarkan checkbox yang aktif.
+// Menghitung ulang seluruh panel hasil berdasarkan checkbox yang sedang aktif.
+// Dipanggil tiap kali ada checkbox berubah, dan sekali saat halaman pertama dimuat.
 function updateResult() {
+  // Kumpulkan semua checkbox yang sedang dicentang.
   const checked = document.querySelectorAll(".menu-check:checked");
 
+  // Akumulator hasil. kategoriTerpenuhi pakai Set agar kategori yang sama
+  // tidak dihitung dua kali (mis. memilih 3 lauk tetap dihitung 1 kategori "lauk").
   let totalKalori = 0;
   let totalHarga = 0;
   const kategoriTerpenuhi = new Set();
   const menuTerpilih = [];
 
+  // Telusuri tiap checkbox aktif: cocokkan ke data menu lewat id,
+  // lalu jumlahkan kalori & harga serta catat kategorinya.
   checked.forEach(function (cb) {
     const id = Number(cb.dataset.id);
     const menu = MENU_DATA.find(function (m) { return m.id === id; });
-    if (!menu) return;
+    if (!menu) return; // jaga-jaga bila id tidak ditemukan di data
 
     totalKalori += menu.calories;
     totalHarga += menu.price;
-    kategoriTerpenuhi.add(menu.categoryKey);
+    kategoriTerpenuhi.add(menu.categoryKey); // pakai categoryKey (logika), bukan label tampilan
     menuTerpilih.push(menu);
   });
 
+  // Tulis total kalori & harga ke panel hasil.
   document.getElementById("total-kalori").textContent = totalKalori + " kkal";
   document.getElementById("total-harga").textContent = formatRupiah(totalHarga);
 
+  // Perbarui status tiap kategori di checklist:
+  // "done" bila minimal satu item kategori itu dipilih, selain itu "pending".
   CATEGORIES.forEach(function (cat) {
     const el = document.querySelector('[data-cat="' + cat.key + '"]');
     if (kategoriTerpenuhi.has(cat.key)) {
@@ -88,7 +97,8 @@ function updateResult() {
     }
   });
 
-  // Badge muncul hanya jika kelima kategori sudah terpenuhi.
+  // Badge "Menu Seimbang" hanya tampil ketika kelima kategori terpenuhi.
+  // Set.size = jumlah kategori unik yang terpilih; CATEGORIES.length = 5.
   const badge = document.getElementById("badge-seimbang");
   if (kategoriTerpenuhi.size === CATEGORIES.length) {
     badge.classList.add("show");
@@ -96,6 +106,7 @@ function updateResult() {
     badge.classList.remove("show");
   }
 
+  // Tampilkan tumpukan gambar menu yang dipilih (atau state kosong bila tidak ada).
   renderStack(menuTerpilih);
 }
 
